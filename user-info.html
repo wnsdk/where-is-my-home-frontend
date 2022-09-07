@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>SB Admin 2 - Register</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+      rel="stylesheet"
+    />
+
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet" />
+  </head>
+
+  <body class="bg-gradient-primary">
+    <div class="container">
+      <div class="card o-hidden border-0 shadow-lg my-5">
+        <div class="card-body p-0">
+          <!-- Nested Row within Card Body -->
+          <div class="row">
+            <div class="col-lg-5 d-none d-lg-block bg-register-imphone"></div>
+            <div class="col-lg-7">
+              <div class="p-5">
+                <div class="text-center">
+                  <h1 class="h4 text-gray-900 mb-5">User Information</h1>
+                </div>
+                <form class="user">
+                  <div class="form-group row">
+                    <div class="col-sm-6 mb-3 mb-sm-0">
+                      <div>ID</div>
+                      <input type="text" class="form-control form-control-user" id="id" />
+                    </div>
+
+                    <div class="col-sm-6" style="float: right">
+                      <div>Name</div>
+                      <input type="text" class="form-control form-control-user" id="name" />
+                    </div>
+                  </div>
+                  <a></a>
+                  <div class="form-group">
+                    <div>Email</div>
+                    <input type="email" class="form-control form-control-user" id="email" />
+                  </div>
+                  <div class="form-group row">
+                    <div class="col-sm-6 mb-3 mb-sm-0">
+                      <div>password</div>
+                      <input type="password" class="form-control form-control-user" id="password" />
+                    </div>
+                    <div class="col-sm-6">
+                      <div>Phone</div>
+                      <input type="text" class="form-control form-control-user" id="phone" />
+                    </div>
+                  </div>
+                  <a href="javascript:regist()" class="btn btn-primary btn-user btn-block">
+                    확인
+                  </a>
+                  <a href="javascript:modify()" class="btn btn-google btn-user btn-block"> 수정 </a>
+                </form>
+                <hr />
+                <a href="javascript:deleteUser()" class="btn btn-google btn-user btn-block">
+                  삭제
+                </a>
+                <hr />
+                <div class="text-center">
+                  <a class="small" href="forgot-password.html">Forgot Password?</a>
+                </div>
+                <div class="text-center">
+                  <a class="small" href="login.html">Already have an account? Login!</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+    <script>
+      // 문서에서 id 로 input data 가져오기
+      let idlet = document.getElementById("id");
+      let passwordlet = document.getElementById("password");
+      let namelet = document.getElementById("name");
+      let emaillet = document.getElementById("email");
+      let phonelet = document.getElementById("phone");
+
+      let user = JSON.parse(localStorage.getItem("user"));
+      // 입력값 검증
+
+      console.log(user);
+      console.log(user["id"]);
+
+      idlet.value = user["id"];
+      passwordlet.value = user["password"];
+      namelet.value = user["name"];
+      emaillet.value = user["email"];
+      phonelet.value = user["phone"];
+
+      idlet.readOnly = true;
+      passwordlet.readOnly = true;
+      namelet.readOnly = true;
+      emaillet.readOnly = true;
+      phonelet.readOnly = true;
+
+      // user 객체 문자열로 바꿔서 로컬스토리지에 저장
+      // localStorage.setItem("user", JSON.stringify(user));
+      // alert("사용자 등록 성공!");
+      // 로그인 화면으로 돌아가기
+      // location.replace("login.html");
+    </script>
+
+    <script>
+      // 문서에서 id 로 input data 가져오기
+
+      let modifychk = false;
+
+      console.log(modifychk);
+
+      function modify() {
+        let idlet = document.getElementById("id");
+        let passwordlet = document.getElementById("password");
+        let namelet = document.getElementById("name");
+        let emaillet = document.getElementById("email");
+        let phonelet = document.getElementById("phone");
+
+        let user = JSON.parse(localStorage.getItem("user0"));
+        // 입력값 검증
+
+        idlet.readOnly = false;
+        passwordlet.readOnly = false;
+        namelet.readOnly = false;
+        emaillet.readOnly = false;
+        phonelet.readOnly = false;
+
+        modifychk = true;
+      }
+
+      console.log(modifychk);
+
+      function regist() {
+        // 문서에서 id 로 input data 가져오기
+        if (!modifychk) location.replace("index.html");
+        else {
+          let id = document.getElementById("id").value;
+          let password = document.getElementById("password").value;
+          let name = document.getElementById("name").value;
+          let email = document.getElementById("email").value;
+          let phone = document.getElementById("phone").value;
+
+          // 입력값 검증
+          if (id == "" || password == "" || name == "" || email == "" || phone == "") {
+            alert("빈칸이 없도록 입력해주세요.");
+            return;
+          } else {
+            // input data로 user 만들기
+            const user = {
+              id: id,
+              password: password,
+              name: name,
+              email: email,
+              phone: phone,
+            };
+
+            // user 객체 문자열로 바꿔서 로컬스토리지에 저장 //+ localStorage.length
+            localStorage.setItem("user", JSON.stringify(user));
+            alert("사용자 등록 성공!");
+            // 로그인 화면으로 돌아가기
+            location.replace("login.html");
+          }
+        }
+      }
+
+      // user 객체 문자열로 바꿔서 로컬스토리지에 저장
+      // localStorage.setItem("user", JSON.stringify(user));
+      // alert("사용자 등록 성공!");
+      // 로그인 화면으로 돌아가기
+      // location.replace("login.html");
+
+      function deleteUser() {
+        localStorage.clear();
+        location.replace("login.html");
+      }
+    </script>
+  </body>
+</html>

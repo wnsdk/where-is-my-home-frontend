@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>아파트 매매 정보 전체 조회</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+                <div class="sidebar-brand-icon rotate-n-15">
+                    <i class="fas fa-laugh-wink"></i>
+                </div>
+                <div class="sidebar-brand-text mx-3">Where is<br>my House</div>
+            </a>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Home</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Function
+            </div>
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item active">
+                <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true"
+                    aria-controls="collapsePages">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>아파트 매매 정보</span>
+                </a>
+                <div id="collapsePages" class="collapse" aria-labelledby="headingPages"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <!-- <h6 class="collapse-header">Login Screens:</h6> -->
+                        <a class="collapse-item" href="apt_all.html">전체 조회</a>
+                        <a class="collapse-item" href="apt_dong.html">동 별 조회</a>
+                        <a class="collapse-item" href="apt_apt.html">아파트 별 조회</a>
+                        <!-- <div class="collapse-divider"></div> -->
+                    </div>
+                </div>
+            </li>
+
+            <li class="nav-item active">
+                <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true"
+                    aria-controls="collapsePages">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>추가 기능</span>
+                </a>
+                <div id="collapsePages" class="collapse" aria-labelledby="headingPages"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <!-- <h6 class="collapse-header">Login Screens:</h6> -->
+                        <a class="collapse-item" href="">비밀 번호 찾기<a>
+                        <a class="collapse-item" href="">관심지역 등록</a>
+                        <a class="collapse-item" href="">관심지역 상가 정보</a>
+                        <a class="collapse-item" href="">관심지역 대기 오염 정보</a>
+                        <!-- <div class="collapse-divider"></div> -->
+                    </div>
+                </div>
+            </li>
+
+            <li class="nav-item active">
+                <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true"
+                    aria-controls="collapsePages">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>심화 기능</span>
+                </a>
+                <div id="collapsePages" class="collapse" aria-labelledby="headingPages"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <!-- <h6 class="collapse-header">Login Screens:</h6> -->
+                        <a class="collapse-item" href="">공지사항 등록</a>
+                        <a class="collapse-item" href="">공지사항 수정</a>
+                        <a class="collapse-item" href="">공지사항 삭제</a>
+                        <a class="collapse-item" href="">공지사항 조회</a>
+                        <!-- <div class="collapse-divider"></div> -->
+                    </div>
+                </div>
+            </li>
+
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
+
+        </ul>
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
+
+                    <!-- Topbar Search -->
+                    <form
+                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                        <div class="input-group">
+                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+                                aria-label="Search" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="button">
+                                    <i class="fas fa-search fa-sm"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+
+                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                        <li class="nav-item dropdown no-arrow d-sm-none">
+                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-search fa-fw"></i>
+                            </a>
+                            <!-- Dropdown - Messages -->
+                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                                aria-labelledby="searchDropdown">
+                                <form class="form-inline mr-auto w-100 navbar-search">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control bg-light border-0 small"
+                                            placeholder="Search for..." aria-label="Search"
+                                            aria-describedby="basic-addon2">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="button">
+                                                <i class="fas fa-search fa-sm"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </li>
+
+                        <!-- Nav Item - Alerts -->
+                        <li class="nav-item dropdown no-arrow mx-1">
+                            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-bell fa-fw"></i>
+                                <!-- Counter - Alerts -->
+                                <span class="badge badge-danger badge-counter">3+</span>
+                            </a>
+                            <!-- Dropdown - Alerts -->
+                            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="alertsDropdown">
+                                <h6 class="dropdown-header">
+                                    Alerts Center
+                                </h6>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="mr-3">
+                                        <div class="icon-circle bg-primary">
+                                            <i class="fas fa-file-alt text-white"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="small text-gray-500">December 12, 2019</div>
+                                        <span class="font-weight-bold">A new monthly report is ready to download!</span>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="mr-3">
+                                        <div class="icon-circle bg-success">
+                                            <i class="fas fa-donate text-white"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="small text-gray-500">December 7, 2019</div>
+                                        $290.29 has been deposited into your account!
+                                    </div>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="mr-3">
+                                        <div class="icon-circle bg-warning">
+                                            <i class="fas fa-exclamation-triangle text-white"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="small text-gray-500">December 2, 2019</div>
+                                        Spending Alert: We've noticed unusually high spending for your account.
+                                    </div>
+                                </a>
+                                <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+                            </div>
+                        </li>
+
+                        <!-- Nav Item - Messages -->
+                        <li class="nav-item dropdown no-arrow mx-1">
+                            <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-envelope fa-fw"></i>
+                                <!-- Counter - Messages -->
+                                <span class="badge badge-danger badge-counter">7</span>
+                            </a>
+                            <!-- Dropdown - Messages -->
+                            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="messagesDropdown">
+                                <h6 class="dropdown-header">
+                                    Message Center
+                                </h6>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="dropdown-list-image mr-3">
+                                        <img class="rounded-circle" src="img/undraw_profile_1.svg"
+                                            alt="...">
+                                        <div class="status-indicator bg-success"></div>
+                                    </div>
+                                    <div class="font-weight-bold">
+                                        <div class="text-truncate">Hi there! I am wondering if you can help me with a
+                                            problem I've been having.</div>
+                                        <div class="small text-gray-500">Emily Fowler · 58m</div>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="dropdown-list-image mr-3">
+                                        <img class="rounded-circle" src="img/undraw_profile_2.svg"
+                                            alt="...">
+                                        <div class="status-indicator"></div>
+                                    </div>
+                                    <div>
+                                        <div class="text-truncate">I have the photos that you ordered last month, how
+                                            would you like them sent to you?</div>
+                                        <div class="small text-gray-500">Jae Chun · 1d</div>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="dropdown-list-image mr-3">
+                                        <img class="rounded-circle" src="img/undraw_profile_3.svg"
+                                            alt="...">
+                                        <div class="status-indicator bg-warning"></div>
+                                    </div>
+                                    <div>
+                                        <div class="text-truncate">Last month's report looks great, I am very happy with
+                                            the progress so far, keep up the good work!</div>
+                                        <div class="small text-gray-500">Morgan Alvarez · 2d</div>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="dropdown-list-image mr-3">
+                                        <img class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60"
+                                            alt="...">
+                                        <div class="status-indicator bg-success"></div>
+                                    </div>
+                                    <div>
+                                        <div class="text-truncate">Am I a good boy? The reason I ask is because someone
+                                            told me that people say this to all dogs, even if they aren't good...</div>
+                                        <div class="small text-gray-500">Chicken the Dog · 2w</div>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
+                            </div>
+                        </li>
+
+                        <div class="topbar-divider d-none d-sm-block"></div>
+
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                                <img class="img-profile rounded-circle"
+                                    src="img/undraw_profile.svg">
+                            </a>
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Profile
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Settings
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Activity Log
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Logout
+                                </a>
+                            </div>
+                        </li>
+
+                    </ul>
+
+                </nav>
+                <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-4 text-gray-800">전체 조회</h1>
+
+                    <!-- 지도를 표시할 div -->
+                    <div id="map" style="width:100%;height:350px;"></div>
+                    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=3c7045b115e2a3139ea644855b1dee31&libraries=services"></script>
+                    <table class="table table-hover text-center" style="display: none">
+                        <tr>
+                          <th>아파트이름</th>
+                          <th>층</th>
+                          <th>면적</th>
+                          <th>법정동</th>
+                          <th>거래금액</th>
+                        </tr>
+                        <tbody id="aptlist"></tbody>
+                    </table>
+
+                    <script>
+                        /////////////////////// 지도 ///////////////////////
+                        var myLatLng = new kakao.maps.LatLng(37.5012743, 127.039585); // 멀티캠퍼스
+                        var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+                        mapOption = { 
+                            center: myLatLng, // 지도의 중심좌표
+                            level: 10 // 지도의 확대 레벨
+                        };
+
+                        // 지도를 생성합니다
+                        var map = new kakao.maps.Map(mapContainer, mapOption); 
+                        var geocoder = new kakao.maps.services.Geocoder();
+
+
+
+                        function load(name) {
+                            let xhr = new XMLHttpRequest(),
+                                okStatus = document.location.protocol === "file:" ? 0 : 200;
+                            xhr.open('GET', name, false);
+                            xhr.overrideMimeType("text/html;charset=utf-8");//   utf-8
+                            xhr.send(null);
+                            return xhr.status === okStatus ? xhr.responseText : null;
+                        }     
+                        
+
+                        window.onload = function () {
+                            let file = load("dongCode.txt").split('\n');
+                            let text = [];  // 모든 법정동 코드가 들어있는 배열
+                            file.forEach((t) => {
+                                if (text.length < 11 && (text.length == 0 || text[text.length - 1] != t.substr(0, 5)))
+                                    text.push(t.substr(0, 5));
+                            });
+
+                            let url = "http://openapi.molit.go.kr/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcAptTradeDev";
+                            let year = '2022';
+                            let month = '08';
+                            let dealYM = year + month;
+
+                            text.forEach((regCode) => {
+                                let queryParams = encodeURIComponent("serviceKey") + "=" + "hBNCyPx%2ByYkGpuzMVW%2FupmQ1mkBZBsp7BZ8GUcaU3ur7jZEhVTScyfwJ1zM1xVSOz6KrFyarVF%2FGMQoTJJ2W1w%3D%3D"; /*Service Key*/
+                                queryParams += "&" + encodeURIComponent("LAWD_CD") + "=" + encodeURIComponent(regCode); /*아파트소재 구군*/
+                                queryParams += "&" + encodeURIComponent("DEAL_YMD") + "=" + encodeURIComponent(dealYM); /*조회년월*/
+                                queryParams += "&" + encodeURIComponent("pageNo") + "=" + encodeURIComponent("1"); /*페이지번호*/
+                                queryParams += "&" + encodeURIComponent("numOfRows") + "=" + encodeURIComponent("30"); /*페이지당건수*/
+
+                                fetch(`${url}?${queryParams}`)
+                                .then((response) => response.text())
+                                .then((data) => {
+                                    makeMarker(data);
+                                    makeList(data);
+                                });
+                            });
+                            
+                        };
+
+                        function sendRequest(selid, regcode) {
+                            const url = "https://grpc-proxy-server-mkvo6j4wsq-du.a.run.app/v1/regcodes";
+                            let params = "regcode_pattern=" + regcode + "&is_ignore_zero=true";
+                            fetch(`${url}?${params}`)
+                            .then((response) => response.json())
+                            .then((data) => addOption(selid, data));
+                        }
+
+                        function initOption(selid) {
+                            let options = document.querySelector(`#${selid}`);
+                            options.length = 0;
+                        }
+
+
+
+                        /////////////////////// 아파트 매매 정보 ///////////////////////
+                        
+                        function makeMarker(data) {
+                            // 주소-좌표 변환 객체를 생성합니다
+                            let positions = [];
+                            let parser = new DOMParser();
+                            const xml = parser.parseFromString(data, "application/xml");
+                            let apts = xml.querySelectorAll("item");
+                            let idx = true;
+                            apts.forEach((apt) => {
+                                var juso = apt.querySelector("법정동").textContent + apt.querySelector("지번").textContent;
+                                // 주소로 좌표를 검색합니다
+                                geocoder.addressSearch(juso, function(result, status) {
+                                    // 정상적으로 검색이 완료됐으면
+                                    if (status === kakao.maps.services.Status.OK) {     
+                                        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);                                   
+                                        // 마커 띄우기
+                                        var marker = new kakao.maps.Marker({
+                                            map: map,
+                                            position: coords
+                                        });
+                                        // 첫 번째 주소로 센터 이동시키기
+                                        if (idx) map.setCenter(coords);
+                                        idx = true;
+                                    } 
+                                });    
+                            });
+                        }
+
+                        function makeList(data) {
+                            document.querySelector("table").setAttribute("style", "display: ;");
+                            let tbody = document.querySelector("#aptlist");
+                            let parser = new DOMParser();
+                            const xml = parser.parseFromString(data, "application/xml");
+                            initTable();
+                            let apts = xml.querySelectorAll("item");
+                            apts.forEach((apt) => {
+                                let tr = document.createElement("tr");
+
+                                let nameTd = document.createElement("td");
+                                nameTd.appendChild(document.createTextNode(apt.querySelector("아파트").textContent));
+                                nameTd.addEventListener('click', function() {
+                                    var juso = apt.querySelector("법정동").textContent + apt.querySelector("지번").textContent;
+                                    // 주소로 좌표를 검색합니다
+                                    geocoder.addressSearch(juso, function(result, status) {
+                                        // 정상적으로 검색이 완료됐으면
+                                        if (status === kakao.maps.services.Status.OK) {     
+                                            var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+                                            // 첫 번째 주소로 센터 이동시키기
+                                            map.setCenter(coords);
+                                        } 
+                                    });    
+                            });
+                            tr.appendChild(nameTd);
+
+                            let floorTd = document.createElement("td");
+                            floorTd.appendChild(document.createTextNode(apt.querySelector("층").textContent));
+                            tr.appendChild(floorTd);
+
+                            let areaTd = document.createElement("td");
+                            areaTd.appendChild(document.createTextNode(apt.querySelector("전용면적").textContent));
+                            tr.appendChild(areaTd);
+
+                            let dongTd = document.createElement("td");
+                            dongTd.appendChild(document.createTextNode(apt.querySelector("법정동").textContent));
+                            tr.appendChild(dongTd);
+
+                            let priceTd = document.createElement("td");
+                            priceTd.appendChild(
+                                document.createTextNode(apt.querySelector("거래금액").textContent + "만원"),
+                            );
+                            priceTd.classList.add("text-end");
+                            tr.appendChild(priceTd);
+
+                            tbody.appendChild(tr);
+                            });
+                        }
+
+                        function initTable() {
+                            let tbody = document.querySelector("#aptlist");
+                            let len = tbody.rows.length;
+                            for (let i = len - 1; i >= 0; i--) {
+                            tbody.deleteRow(i);
+                            }
+                        }
+                    </script>
+
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; Your Website 2020</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+
+</body>
+
+</html>

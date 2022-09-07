@@ -1,0 +1,17 @@
+{
+  "users": [
+    {
+      "id": "i1",
+      "name": "토니 스타크",
+      "email": "ironman@ssafy.com",
+      "password": "1234",
+      "phone": "010-1234-1234"
+    },
+    {
+      "id": "c1",
+      "name": "스티브 로저스",
+      "password": "12345",
+      "phone": "010-1234-5678"
+    }
+  ]
+}
